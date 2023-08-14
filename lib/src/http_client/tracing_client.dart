@@ -33,8 +33,7 @@ class TracingClient extends BaseClient {
     StreamedResponse? response;
     try {
       if (span != null) {
-        if (containsTracePropagationTarget(
-            _hub.options.tracePropagationTargets, request.url.toString())) {
+        if (containsTracePropagationTarget(_hub.options.tracePropagationTargets, request.url.toString())) {
           addSentryTraceHeader(span, request.headers);
           addBaggageHeader(
             span,
@@ -52,7 +51,7 @@ class TracingClient extends BaseClient {
 
       rethrow;
     } finally {
-      await span?.finish();
+      span?.finish();
     }
     return response;
   }

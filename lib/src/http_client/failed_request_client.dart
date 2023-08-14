@@ -134,7 +134,7 @@ class FailedRequestClient extends BaseClient {
         exception ??= SentryHttpClientError(reason);
       }
       if (capture) {
-        await _captureEvent(
+        _captureEvent(
           exception: exception,
           stackTrace: stackTrace,
           request: request,

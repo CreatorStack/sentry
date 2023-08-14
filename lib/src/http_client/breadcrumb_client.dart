@@ -86,7 +86,7 @@ class BreadcrumbClient extends BaseClient {
         responseBodySize: responseBodySize,
       );
 
-      await _hub.addBreadcrumb(breadcrumb);
+      _hub.addBreadcrumb(breadcrumb);
     }
   }
 
